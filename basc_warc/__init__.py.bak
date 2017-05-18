@@ -229,7 +229,7 @@ class RecordHeader(object):
         """Return bytes to write."""
         field_bytes = bytes()
 
-        for key, value in sorted(list(self.fields.items()), key=warc_sort_keyfn):
+        for key, value in sorted(self.fields.items(), key=warc_sort_keyfn):
             key = utils.writable_field_name(key)
             value = utils.writable_field_value(value)
 
@@ -306,7 +306,7 @@ class WarcinfoBlock(object):
             # assemble block items
             info_fields = []
 
-            for key, value in list(self.fields.items()):
+            for key, value in self.fields.items():
                 key = utils.writable_field_name(key)
                 value = utils.writable_field_value(value)
 
